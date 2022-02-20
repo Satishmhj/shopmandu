@@ -1,5 +1,6 @@
 .navbar {
   background-color: #aaadc4;
+  position: fixed;
   /* opacity: */
 }
 .navbar ul {

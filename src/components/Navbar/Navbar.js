@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./navbar.css";
 import { FaUserAlt, FaHome } from "react-icons/fa";
 import { BsCartFill } from "react-icons/bs";
 import { FcShop } from "react-icons/fc";
 import { Badge } from "react-bootstrap";
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  // const [count, setCount] = useState();
+
+  const{count} = props;
+
   return (
-    <nav className="navbar navbar-default navbar-fixed-top transparent navbar-light justify-content-between">
+    <nav className="navbar navbar-default navbar-light justify-content-between " >
       <div className="container">
         <a className="navbar-brand">
           <img
@@ -25,7 +30,7 @@ const Navbar = () => {
             </li>
             <li>
               <BsCartFill />
-              <span class="badge badge-danger">0</span>
+              <span class="badge badge-pill badge-danger">{count}</span>
             </li>
             <li>
               <FaUserAlt />
