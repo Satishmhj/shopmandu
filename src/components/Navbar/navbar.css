@@ -1,0 +1,22 @@
+.navbar {
+  background-color: #aaadc4;
+  /* opacity: */
+}
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul li {
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  display: block;
+}
+.logo {
+  width: 3rem;
+  border-radius: 1.2rem;
+}
