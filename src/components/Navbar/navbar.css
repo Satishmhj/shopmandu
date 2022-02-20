@@ -1,7 +1,7 @@
 .navbar {
   background-color: #aaadc4;
   position: fixed;
-  /* opacity: */
+  opacity: 0.9;
 }
 .navbar ul {
   display: flex;

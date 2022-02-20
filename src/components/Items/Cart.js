@@ -16,7 +16,7 @@ const Cart = (props) => {
 
       <div
         className="container justify-content-between  "
-        style={{ display: "flex", marginTop: "20px" }}
+        style={{ display: "flex", marginTop: "80px" }}
       >
         <h3>Products</h3>
 
@@ -45,7 +45,7 @@ const Cart = (props) => {
                 console.log(d.toLocaleDateString().replaceAll("/", "-"));
 
                 return (
-                  <div className="col-3 mt-3">
+                  <div key={"product_" + item.id} className="col-3 mt-3">
                     <div class="card" style={{ width: "16rem" }}>
                       <img
                         class="card-img-top"

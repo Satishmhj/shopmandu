@@ -6,13 +6,10 @@ import { FcShop } from "react-icons/fc";
 import { Badge } from "react-bootstrap";
 
 const Navbar = (props) => {
-
-  // const [count, setCount] = useState();
-
-  const{count} = props;
+  const { count } = props;
 
   return (
-    <nav className="navbar navbar-default navbar-light justify-content-between " >
+    <nav className="navbar navbar-default navbar-light justify-content-between fixed-top ">
       <div className="container">
         <a className="navbar-brand">
           <img
@@ -29,8 +26,13 @@ const Navbar = (props) => {
               <FaHome />
             </li>
             <li>
-              <BsCartFill />
-              <span class="badge badge-pill badge-danger">{count}</span>
+              <div className="position-relative">
+                <BsCartFill />
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light rounded-circle">
+                  {count}
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </div>
             </li>
             <li>
               <FaUserAlt />
