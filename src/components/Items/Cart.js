@@ -1,33 +1,31 @@
 import React, { useState } from "react";
-import { FaFilter } from "react-icons/fa";
 import Loader from "../Loader/Loader";
 import Filter from "./Filter";
-// import "../../App.css";
+import IncDecCounter from "./IncDecCounter";
+import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { FaFilter } from "react-icons/fa";
 
 const Cart = (props) => {
-  const { product, handleAddToCart, count, loader } = props;
+  const { product, handleAddToCart, count, loader, cd, setCd } = props;
   const [modal, setModal] = useState(false);
-  console.log(product);
 
-  console.log(modal);
   return (
     <>
       {modal && <Filter setModal={setModal} />}
-
       <div
-        className="container justify-content-between  "
+        className="container justify-content-between "
         style={{ display: "flex", marginTop: "80px" }}
       >
         <h3>Products</h3>
 
         <button
-          className="btn-filter"
           onClick={() => {
             setModal(!modal);
           }}
+          style={{ borderRadius: "10px", border: "2px solid lightBlue" }}
         >
           <FaFilter />
-          filter
+          Filter
         </button>
       </div>
       {loader ? (
@@ -42,7 +40,30 @@ const Cart = (props) => {
                 var d = new Date(item.createDate);
                 d.toLocaleDateString();
                 d.toLocaleDateString().replaceAll("/", "-");
-                console.log(d.toLocaleDateString().replaceAll("/", "-"));
+                // console.log(d.toLocaleDateString().replaceAll("/", "-"));
+
+                // console.log(item.price.replaceAll("$", "Rs "));
+                var p = item.price.replaceAll("$", "Rs");
+                var myArr = String(p)
+                  .split("")
+                  .map((p) => {
+                    return Number(p);
+                  });
+                //array banaye
+
+                // console.log(myArr);
+
+                var slice = myArr.slice(2, myArr.length);
+
+                // console.log(slice);
+
+                var number = slice.join("");
+
+                // console.log(slice.join(""));
+
+                var rs = number * 119.7;
+                // console.log(rs);
+                item.nepaliCurrency = rs; //array ma pathako
 
                 return (
                   <div key={"product_" + item.id} className="col-3 mt-3">
@@ -53,8 +74,13 @@ const Cart = (props) => {
                         alt="Card image cap"
                       />
                       <div class="card-body">
+                        <div className="">
+                          <IncDecCounter stock={item.stock} count={count} />
+                        </div>
+                        <br/>
+                        <br/>
                         <h5 class="card-title">{item.name}</h5>
-                        <b> Price: {item.price}</b>
+                        <b> Rs: {rs}</b>
                         <span style={{ float: "right", color: "green" }}>
                           {" "}
                           <small>Stocks left: {item.stock}</small>
@@ -69,9 +95,11 @@ const Cart = (props) => {
                           <button
                             class="btn btn-primary mt-2"
                             onClick={() => {
-                              if (item.stock > count) {
-                                handleAddToCart(item.id);
-                              } else alert("no stock left");
+                              let data = [...cd];
+                              data.push(item);
+                              setCd(data);
+                              handleAddToCart()
+                              
                             }}
                           >
                             Add to Cart

@@ -29,7 +29,7 @@ const Filter = (props) => {
                 onClick={() =>{
                   setModal(false)
                 }}
-                style={{borderRadius: '10px', border: '1px solid lightblue'}}
+                style={{borderRadius: "10px", border: '1px solid lightblue'}}
               >
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -38,9 +38,9 @@ const Filter = (props) => {
               <div>
                 <a>Price</a>
                 <br />
-                <input type="text" placeholder="Min"></input>
+                <input type="number" placeholder="Min"></input>
                 <a>-</a>
-                <input type="text" placeholder="Max"></input>
+                <input type="number" placeholder="Max"></input>
               </div>
               <br/>
               <div>
@@ -68,17 +68,17 @@ const Filter = (props) => {
                     >
                       <li>
                         <a class="dropdown-item" href="#">
-                          Action
+                          Laptops
                         </a>
                       </li>
                       <li>
                         <a class="dropdown-item" href="#">
-                          Another action
+                          SmartPhones
                         </a>
                       </li>
                       <li>
                         <a class="dropdown-item" href="#">
-                          Something else here
+                          HeadSet
                         </a>
                       </li>
                     </ul>
@@ -88,14 +88,14 @@ const Filter = (props) => {
             </div>
             <div class="modal-footer">
               <button
-                type="button"
-                class="btn btn-secondary close"
+                type="button "
+                class="btn btn-secondary close btn btn-danger"
                 data-dismiss="modal"
               >
-                Cancle
+                Cancel
               </button>
               <button type="button" class="btn btn-success">
-                apply
+                Apply
               </button>
             </div>
           </div>

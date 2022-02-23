@@ -1,16 +1,17 @@
 import Navbar from "./components/Navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Cart from "./components/Items/Cart";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { useEffect, useState } from "react";
-import Filter from "./components/Items/Filter";
+import CartDetail from "./components/CartDetail/CartDetail";
 
 function App() {
   const [product, setProduct] = useState();
   const [count, setCount] = useState(0);
   const [loader, setLoader] = useState(false);
+  const [cd, setCd] = useState([]);
   const getData = () => {
-    
     return fetch("https://electronic-ecommerce.herokuapp.com/api/v1/product")
       .then((response) => response.json())
       .then((data) => {
@@ -33,15 +34,22 @@ function App() {
     return setCount(count + 1);
   };
 
-  // console.log(product);
   return (
     <div className="App">
-      <Navbar count={count} />
+      <Navbar
+        count={count}
+        cd={cd}
+        setCd={setCd}
+        handleAddToCart={handleAddToCart}
+        setCount={setCount}
+      />
       <Cart
         product={product}
         handleAddToCart={handleAddToCart}
         count={count}
         loader={loader}
+        cd={cd}
+        setCd={setCd}
       />
     </div>
   );

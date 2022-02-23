@@ -2,6 +2,7 @@
   background-color: #aaadc4;
   position: fixed;
   opacity: 0.9;
+  width: auto;
 }
 .navbar ul {
   display: flex;
