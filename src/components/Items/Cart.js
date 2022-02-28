@@ -4,10 +4,13 @@ import Filter from "./Filter";
 import IncDecCounter from "./IncDecCounter";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { FaFilter } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Cart = (props) => {
-  const { product, handleAddToCart, count, loader, cd, setCd } = props;
+  const {  handleAddToCart, count, loader, cd, setCd } = props;
   const [modal, setModal] = useState(false);
+
+  const product = useSelector((state) => state.product.products)
 
   return (
     <>
@@ -16,7 +19,7 @@ const Cart = (props) => {
         className="container justify-content-between "
         style={{ display: "flex", marginTop: "80px" }}
       >
-        <h3>Products</h3>
+        <h4>Products</h4>
 
         <button
           onClick={() => {
